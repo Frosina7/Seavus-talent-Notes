@@ -1,0 +1,29 @@
+.note {
+  position: relative;
+  width: 300px;
+  min-height: 250px;
+  background: linear-gradient(#fdf4bb, #e8dc88);
+}
+
+.note .note-header-title {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ece09f;
+  margin: 0 auto;
+}
+.note .note-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid midnightblue;
+}
+
+.note .note-content-title {
+  padding: 10px 10px 0;
+}
+
+.note .note-footer {
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+}
