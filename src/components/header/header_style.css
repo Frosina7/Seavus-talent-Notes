@@ -1,6 +1,11 @@
-.header .header-title {
+.toolbar {
+  display: flex;
+  justify-content: center;
+  background-color: indianred;
+}
+
+.toolbar .seavus-title {
   color: white;
   font-size: 23px;
   font-weight: bold;
-  background-color: indianred;
 }
