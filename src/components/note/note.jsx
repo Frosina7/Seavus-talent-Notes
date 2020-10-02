@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./note_style.css";
-
 import ClearIcon from "@material-ui/icons/Clear";
 
 function Note(props) {
@@ -23,10 +22,13 @@ Note.propTypes = {
 function NoteHeader({ title }) {
   return (
     <div className='note-header'>
-      <div className='note-header-title'>{title}</div> <ClearIcon />
+      <div className='note-header-title'>{title}</div>{" "}
+      <ClearIcon onClick={onRemove} />
     </div>
   );
 }
+
+const onRemove = () => {};
 
 NoteHeader.propTypes = {
   title: PropTypes.string.isRequired,
@@ -53,11 +55,5 @@ function NoteFooter({ tags }) {
 }
 
 NoteFooter.propTypes = {};
-
-export const Example = () => (
-  <div>
-    <Note />
-  </div>
-);
 
 export default Note;

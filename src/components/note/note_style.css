@@ -10,6 +10,7 @@
   text-align: center;
   border-bottom: 1px solid #ece09f;
   margin: 0 auto;
+  font-weight: bold;
 }
 .note .note-header {
   display: flex;
