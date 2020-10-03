@@ -19,14 +19,18 @@ export default class NotesGrid extends Component {
   render() {
     return (
       <div>
-        <div className='note-grid'>
-          {this.state.notes.map((notes) => (
-            <Box m={3}>
-              <div className='note'>
-                <Note title={notes.title} content={notes.content}></Note>
-              </div>
-            </Box>
-          ))}
+        <div className='d-flex flex-row'>
+          <div className='note-grid'>
+            <div className='row justify-content-md-left'>
+              {this.state.notes.map((notes) => (
+                <Box m={3}>
+                  <div className='note'>
+                    <Note title={notes.title} content={notes.content}></Note>
+                  </div>
+                </Box>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );

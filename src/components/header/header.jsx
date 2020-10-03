@@ -13,6 +13,7 @@ function Header(props) {
           <Typography variant='h6' className='seavus-title'>
             {props.title}
           </Typography>
+          <button className='toolbar-button'>{props.action}</button>
         </Toolbar>
       </AppBar>
     </div>

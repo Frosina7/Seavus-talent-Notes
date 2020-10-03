@@ -9,3 +9,8 @@
   font-size: 23px;
   font-weight: bold;
 }
+
+.toolbar .toolbar-button {
+  position: fixed;
+  right: 1%;
+}
