@@ -28,3 +28,7 @@
   bottom: 0;
   padding: 5px;
 }
+
+.note-footer .create-icon {
+  padding-left: 260px;
+}

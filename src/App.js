@@ -4,7 +4,7 @@ import Header from "./components/header/header";
 import Box from "@material-ui/core/Box";
 import NotesGrid from "./components/notes_gird/notesgrid";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CreateNote from "./components/note_create/note_create";
+import CreateNote from "./components/note_create_icon/note_create";
 
 function App() {
   return (

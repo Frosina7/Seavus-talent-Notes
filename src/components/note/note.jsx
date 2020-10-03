@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./note_style.css";
 import ClearIcon from "@material-ui/icons/Clear";
+import CreateIcon from "@material-ui/icons/Create";
+import { Link } from "react-router-dom";
 
 function Note(props) {
   return (
@@ -49,7 +51,11 @@ NoteContent.propTypes = {
 function NoteFooter({ tags }) {
   return (
     <div className='note-footer'>
-      <p></p>
+      <div className='create-icon'>
+        <Link to='/edit-note/{id}'>
+          <CreateIcon />
+        </Link>
+      </div>
     </div>
   );
 }

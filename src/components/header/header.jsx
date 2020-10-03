@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import "./header_style.css";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
@@ -13,7 +14,9 @@ function Header(props) {
           <Typography variant='h6' className='seavus-title'>
             {props.title}
           </Typography>
-          <button className='toolbar-button'>{props.action}</button>
+          <Link to='/manage-tags'>
+            <button className='toolbar-button'>{props.action}</button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
