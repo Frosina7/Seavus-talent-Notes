@@ -4,7 +4,7 @@ import "./note_style.css";
 import ClearIcon from "@material-ui/icons/Clear";
 import CreateIcon from "@material-ui/icons/Create";
 import { Grid } from "@material-ui/core";
-
+import { Link } from "@material-ui/core";
 function Note(props) {
   return (
     <div className='note'>
@@ -56,7 +56,9 @@ function NoteFooter({ tags }) {
           <span className='note-footer-tags'>{tags}</span>
         </Grid>
         <Grid item xs={2}>
-          <CreateIcon />
+          <Link to='/edit-note/{id}'>
+            <CreateIcon />
+          </Link>
         </Grid>
       </Grid>
     </div>

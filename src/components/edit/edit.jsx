@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./note_create_form_style.css";
+
 import axios from "axios";
 
-class CreateNoteForm extends Component {
+class EditNote extends Component {
   state = {
     tags: [],
   };
@@ -53,8 +53,8 @@ class CreateNoteForm extends Component {
                 onChange={this.handleContentChange}
               ></textarea>
             </div>
-            <div class='form-group'>
-              <select class='form-control' id='sel1'>
+            <div className='form-group' id='select-form'>
+              <select className='form-control' id='sel1'>
                 <option>
                   {this.state.tags.map((tag, index) => (
                     <span key={index}>#{tag.name}</span>
@@ -68,15 +68,15 @@ class CreateNoteForm extends Component {
                 )}
               </select>
 
-              <button type='button' class='btn btn'>
+              <button type='button' className='btn btn'>
                 Add
               </button>
             </div>
-            <div className='container' id='bottom-container'>
-              <button type='button' className='btn btn' id='save-button'>
+            <div classNameName='container' id='bottom-container'>
+              <button type='button' classNameName='btn btn' id='save-button'>
                 Save
               </button>
-              <button type='button' className='btn btn' id='cancel-button'>
+              <button type='button' classNameName='btn btn' id='cancel-button'>
                 Cancel
               </button>
             </div>
@@ -87,4 +87,4 @@ class CreateNoteForm extends Component {
   }
 }
 
-export default CreateNoteForm;
+export default EditNote;

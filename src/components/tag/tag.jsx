@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./tags_manager_style.css";
+import "./tag_style.css";
 import { Box } from "@material-ui/core";
 
 class TagsManager extends Component {

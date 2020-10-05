@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/header/header";
-import NotesGrid from "./components/notes_gird/notesgrid";
+import NotesGrid from "./components/grid/grid";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CreateNote from "./components/note_create_icon/note_create_icon";
-import CreateNoteForm from "./components/note_create_form/note_create_form";
-import TagsManager from "./components/tags_manager/tags_manager";
+import CreateNote from "./components/create_icon/create_icon";
+import CreateNoteForm from "./components/create/create";
+import TagsManager from "./components/tag/tag";
+import EditNote from "./components/edit/edit";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={NotesGrid} />
 
-          <Route path='/edit-note/:id' />
+          <Route path='/edit-note/{id}' component={EditNote} />
 
           <Route path='/manage-tags' component={TagsManager} />
 

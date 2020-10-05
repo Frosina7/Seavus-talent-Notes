@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Note from "../note/note";
 import Box from "@material-ui/core/Box";
-import "./note_style.css";
+import "./grid.css";
 
 export default class NotesGrid extends Component {
   state = {

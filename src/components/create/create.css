@@ -23,3 +23,6 @@
   display: flex;
   padding-bottom: 3%;
 }
+#select-form {
+  display: flex;
+}
