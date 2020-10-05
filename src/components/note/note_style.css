@@ -22,13 +22,13 @@
 .note .note-content-title {
   padding: 10px 10px 0;
 }
-
-/* .note .note-footer {
-  position: absolute;
-  bottom: 0;
-  padding: 5px;
+.note-content {
+  min-height: 190px;
 }
 
-.note-footer .create-icon {
-  padding-left: 260px;
-} */
+.note .note-footer-tags {
+  margin: 0;
+  float: left;
+  border-radius: 10px;
+  background-color: burlywood;
+}

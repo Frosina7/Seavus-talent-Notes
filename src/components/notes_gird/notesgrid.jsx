@@ -22,20 +22,16 @@ export default class NotesGrid extends Component {
         <div className='d-flex flex-row'>
           <div className='note-grid'>
             <div className='row justify-content-md-left'>
-              {this.state.notes.map((notes) => (
-                <Box m={3}>
+              {this.state.notes.map((note, index) => (
+                <Box m={3} key={index}>
                   <div className='note'>
-                    <div className='note-header'>{notes.title}</div>
-                    <div className='note-content'>{notes.content}</div>
-                    <div className='note-footer'>
-                      {notes.tags.map((tag) => (
-                        <p>#{tag.name}</p>
+                    <Note
+                      title={note.title}
+                      content={note.content}
+                      tags={note.tags.map((tag, index) => (
+                        <span key={index}>#{tag.name}</span>
                       ))}
-                    </div>
-                    {console.log(
-                      "tags",
-                      notes.tags.map((tag) => <p>#{tag.name}</p>)
-                    )}
+                    ></Note>
                   </div>
                 </Box>
               ))}

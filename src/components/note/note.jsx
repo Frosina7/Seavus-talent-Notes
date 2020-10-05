@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./note_style.css";
 import ClearIcon from "@material-ui/icons/Clear";
 import CreateIcon from "@material-ui/icons/Create";
-import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 
 function Note(props) {
   return (
@@ -19,7 +19,6 @@ Note.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  id: PropTypes.number,
 };
 
 function NoteHeader({ title }) {
@@ -52,7 +51,14 @@ NoteContent.propTypes = {
 function NoteFooter({ tags }) {
   return (
     <div className='note-footer'>
-      <p className='note-footer-tags'>{tags}</p>
+      <Grid container>
+        <Grid item xs={10}>
+          <span className='note-footer-tags'>{tags}</span>
+        </Grid>
+        <Grid item xs={2}>
+          <CreateIcon />
+        </Grid>
+      </Grid>
     </div>
   );
 }

@@ -3,4 +3,23 @@
   background: linear-gradient(#fdf4bb, #e8dc88);
   width: 50%;
   margin: 0 auto;
+  margin-top: 3%;
+}
+#form-group1 {
+  padding-top: 3%;
+}
+.form-group #sel1 {
+  width: 50%;
+}
+.container #save-button {
+  width: 30%;
+  margin-right: 5%;
+}
+.container #cancel-button {
+  width: 30%;
+}
+
+.container #bottom-container {
+  display: flex;
+  padding-bottom: 3%;
 }
