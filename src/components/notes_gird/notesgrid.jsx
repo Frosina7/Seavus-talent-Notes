@@ -25,7 +25,17 @@ export default class NotesGrid extends Component {
               {this.state.notes.map((notes) => (
                 <Box m={3}>
                   <div className='note'>
-                    <Note title={notes.title} content={notes.content}></Note>
+                    <div className='note-header'>{notes.title}</div>
+                    <div className='note-content'>{notes.content}</div>
+                    <div className='note-footer'>
+                      {notes.tags.map((tag) => (
+                        <p>#{tag.name}</p>
+                      ))}
+                    </div>
+                    {console.log(
+                      "tags",
+                      notes.tags.map((tag) => <p>#{tag.name}</p>)
+                    )}
                   </div>
                 </Box>
               ))}
@@ -36,4 +46,3 @@ export default class NotesGrid extends Component {
     );
   }
 }
-export const Example = () => <NotesGrid />;

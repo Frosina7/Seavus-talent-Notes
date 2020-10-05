@@ -19,12 +19,13 @@ Note.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
+  id: PropTypes.number,
 };
 
 function NoteHeader({ title }) {
   return (
     <div className='note-header'>
-      <div className='note-header-title'>{title}</div>{" "}
+      <div className='note-header-title'>{title}</div>
       <ClearIcon onClick={onRemove} />
     </div>
   );
@@ -51,15 +52,13 @@ NoteContent.propTypes = {
 function NoteFooter({ tags }) {
   return (
     <div className='note-footer'>
-      <div className='create-icon'>
-        <Link to='/edit-note/{id}'>
-          <CreateIcon />
-        </Link>
-      </div>
+      <p className='note-footer-tags'>{tags}</p>
     </div>
   );
 }
 
-NoteFooter.propTypes = {};
+NoteFooter.propTypes = {
+  tags: PropTypes.array.isRequired,
+};
 
 export default Note;

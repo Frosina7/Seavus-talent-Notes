@@ -11,9 +11,11 @@ function Header(props) {
     <div className='header'>
       <AppBar position='static'>
         <Toolbar className='toolbar'>
-          <Typography variant='h6' className='seavus-title'>
-            {props.title}
-          </Typography>
+          <Link to='/' style={{ textDecoration: "none" }}>
+            <Typography variant='h6' className='seavus-title'>
+              {props.title}
+            </Typography>
+          </Link>
           <Link to='/manage-tags'>
             <button className='toolbar-button'>{props.action}</button>
           </Link>
