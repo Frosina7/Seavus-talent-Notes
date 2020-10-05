@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function CreateNote(props) {
   return (
     <div className='note-create'>
-      <Fab color='primary' aria-label='add'>
+      <Fab aria-label='add'>
         <Link to='/create-note'>
           <AddIcon />
         </Link>

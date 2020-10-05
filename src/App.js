@@ -13,7 +13,6 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Header title='Seavus Notes' action='Manage tags' />
-
         <Switch>
           <Route exact path='/' component={NotesGrid} />
 

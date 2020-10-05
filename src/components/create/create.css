@@ -4,12 +4,14 @@
   width: 50%;
   margin: 0 auto;
   margin-top: 3%;
+  height: 390px;
 }
 #form-group1 {
   padding-top: 3%;
 }
 .form-group #sel1 {
   width: 50%;
+  margin-right: 2%;
 }
 .container #save-button {
   width: 30%;
@@ -20,9 +22,13 @@
 }
 
 .container #bottom-container {
-  display: flex;
-  padding-bottom: 3%;
+  align-items: flex-start;
+  display: inline-flex;
+  padding: 0;
 }
 #select-form {
   display: flex;
+}
+#content-textarea {
+  margin-top: 2%;
 }

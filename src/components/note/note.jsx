@@ -25,12 +25,10 @@ function NoteHeader({ title }) {
   return (
     <div className='note-header'>
       <div className='note-header-title'>{title}</div>
-      <ClearIcon onClick={onRemove} />
+      <ClearIcon />
     </div>
   );
 }
-
-const onRemove = () => {};
 
 NoteHeader.propTypes = {
   title: PropTypes.string.isRequired,
