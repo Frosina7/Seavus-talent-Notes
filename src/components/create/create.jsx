@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./create.css";
 import axios from "axios";
-import Note from "../note/note";
 import { Link } from "react-router-dom";
 
 class CreateForm extends Component {

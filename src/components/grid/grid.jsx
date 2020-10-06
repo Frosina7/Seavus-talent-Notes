@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import Note from "../note/note";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
-import ClearIcon from "@material-ui/icons/Clear";
 import "./grid.css";
 
 export default class NotesGrid extends Component {

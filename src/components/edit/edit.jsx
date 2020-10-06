@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class EditNote extends Component {
   constructor(props) {
@@ -14,6 +13,8 @@ class EditNote extends Component {
       contentError: "",
       tags: [],
     };
+
+    this.addNote = this.addNote.bind(this);
   }
   componentDidMount() {
     axios.get(`/api/tags`).then((res) => {
@@ -50,15 +51,39 @@ class EditNote extends Component {
     }
   };
 
-  selectHandler = (e) => {};
+  addNote(e) {
+    e.preventDefault();
+    const newTitle = this.state.title;
+    const newContent = this.state.content;
+    console.log("New title", newTitle);
+    console.log("New content", newContent);
 
-  submitHandler = () => {};
+    if (newTitle !== "" && newContent !== "") {
+      this.setState({
+        title: newTitle,
+        content: newContent,
+      });
+
+      return this.updateNote(newTitle, newContent);
+    }
+  }
+
+  updateNote = (title, content) => {
+    axios
+      .put(`api/notes/${this.props.id}`, { title, content })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
       <div className='note-create-form'>
         <div className='container'>
-          <form onSubmit={this.handleForm}>
+          <form onSubmit={this.addNote}>
             <div className='form-group' id='form-group1'>
               <input
                 type='text'
@@ -102,9 +127,17 @@ class EditNote extends Component {
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }
               >
-                <Link to='/'> Save</Link>
+                Save
               </button>
-              <button type='button' className='btn btn' id='cancel-button'>
+
+              <button
+                type='button'
+                className='btn btn'
+                id='cancel-button'
+                onClick={() =>
+                  window.location.reload(false) && <Link to='/create-note' />
+                }
+              >
                 Cancel
               </button>
             </div>

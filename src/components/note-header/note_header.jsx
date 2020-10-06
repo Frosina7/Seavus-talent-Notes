@@ -11,7 +11,7 @@ export default class NoteHeader extends Component {
 
   deleteNote = () => {
     axios.delete(`api/notes/${this.props.id}`);
-    window.location.reload(false);
+    window.location.reload(true);
   };
 
   render() {
