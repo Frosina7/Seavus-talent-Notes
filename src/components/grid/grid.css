@@ -1,3 +1,6 @@
 .note-grid {
   display: flex;
 }
+#row {
+  margin-left: 0;
+}

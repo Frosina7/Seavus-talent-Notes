@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header/header";
 import NotesGrid from "./components/grid/grid";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CreateNote from "./components/create_icon/create_icon";
+import CreateNote from "./components/create-icon/create_icon";
 import CreateNoteForm from "./components/create/create";
 import TagsManager from "./components/tag/tag";
 import EditNote from "./components/edit/edit";

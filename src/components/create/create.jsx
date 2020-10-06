@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./create.css";
 import axios from "axios";
-import { Link } from "@material-ui/core";
+import Note from "../note/note";
+import { Link } from "react-router-dom";
 
 class CreateForm extends Component {
   constructor(props) {
@@ -50,9 +51,9 @@ class CreateForm extends Component {
     }
   };
 
-  selectHandler = (e) => {};
-
-  submitHandler = () => {};
+  submitHandler = () => {
+    return <Note title={this.state.title} content={this.state.content} />;
+  };
 
   render() {
     return (
@@ -101,8 +102,9 @@ class CreateForm extends Component {
                 disabled={
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }
+                onClick={this.submitHandler}
               >
-                Save
+                <Link to='/'> Save</Link>
               </button>
 
               <button

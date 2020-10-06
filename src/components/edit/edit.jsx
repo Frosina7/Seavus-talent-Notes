@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -101,7 +102,7 @@ class EditNote extends Component {
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }
               >
-                Save
+                <Link to='/'> Save</Link>
               </button>
               <button type='button' className='btn btn' id='cancel-button'>
                 Cancel

@@ -21,6 +21,7 @@
 
 .note .note-content-title {
   padding: 10px 10px 0;
+  float: left;
 }
 .note-content {
   min-height: 190px;
