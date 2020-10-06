@@ -5,10 +5,6 @@ import { Box } from "@material-ui/core";
 import axios from "axios";
 
 export default class NoteHeader extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   deleteNote = () => {
     axios.delete(`api/notes/${this.props.id}`);
     window.location.reload(true);

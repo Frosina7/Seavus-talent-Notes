@@ -56,8 +56,6 @@ class CreateForm extends Component {
     e.preventDefault();
     const newTitle = this.state.title;
     const newContent = this.state.content;
-    console.log("New title", newTitle);
-    console.log("New content", newContent);
 
     if (newTitle !== "" && newContent !== "") {
       this.setState({
@@ -124,6 +122,7 @@ class CreateForm extends Component {
                 className='btn btn'
                 id='save-button'
                 type='submit'
+                onClick={() => (window.location.href = "/")}
                 disabled={
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }

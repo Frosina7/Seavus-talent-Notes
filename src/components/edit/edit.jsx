@@ -11,6 +11,7 @@ class EditNote extends Component {
       content: "",
       titleError: "",
       contentError: "",
+      id: "",
       tags: [],
     };
 
@@ -67,7 +68,6 @@ class EditNote extends Component {
       return this.updateNote(newTitle, newContent);
     }
   }
-
   updateNote = (title, content) => {
     axios
       .put(`api/notes/${this.props.id}`, { title, content })
@@ -123,6 +123,7 @@ class EditNote extends Component {
                 className='btn btn'
                 id='save-button'
                 type='submit'
+                onClick={() => (window.location.href = "/")}
                 disabled={
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }

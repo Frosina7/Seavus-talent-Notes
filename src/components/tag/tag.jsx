@@ -50,7 +50,6 @@ class TagsManager extends Component {
                     className='form-control'
                     id='form-tags'
                     key={index}
-                    id={tag.id}
                   >
                     #{tag.name}
                   </div>
