@@ -5,10 +5,17 @@
   min-height: 250px;
   background: linear-gradient(#fdf4bb, #e8dc88);
   width: 50%;
+  height: 320px;
   margin: 0 auto;
   margin-top: 3%;
 }
-
+.tag-button-container {
+  display: flex;
+}
 .form-group .tag-create-box {
   display: flex;
+}
+
+#tags-container {
+  margin-left: 5%;
 }
