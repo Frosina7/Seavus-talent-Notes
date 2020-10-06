@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import axios from "axios";
 import Note from "../note/note";
 import Box from "@material-ui/core/Box";
+import Link from "@material-ui/core/Link";
+import ClearIcon from "@material-ui/icons/Clear";
 import "./grid.css";
 
 export default class NotesGrid extends Component {
-  state = {
-    notes: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+    };
+  }
 
   componentDidMount() {
     axios.get(`/api/notes`).then((res) => {
@@ -15,14 +20,6 @@ export default class NotesGrid extends Component {
       this.setState({ notes: res.data });
     });
   }
-
-  removeOnClick = (note, index) => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      let notes = [...this.state.notes];
-      notes.splice(index, 1);
-      this.setState({ notes: notes });
-    }
-  };
 
   render() {
     return (
@@ -34,12 +31,12 @@ export default class NotesGrid extends Component {
                 <Box m={3} key={index}>
                   <div className='note'>
                     <Note
+                      id={note.id}
                       title={note.title}
                       content={note.content}
                       tags={note.tags.map((tag, index) => (
                         <span key={index}>#{tag.name}</span>
                       ))}
-                      onClick={this.removeOnClick}
                     ></Note>
                   </div>
                 </Box>

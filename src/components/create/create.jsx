@@ -15,6 +15,8 @@ class CreateForm extends Component {
       contentError: "",
       tags: [],
     };
+
+    this.addNote = this.addNote.bind(this);
   }
   componentDidMount() {
     axios.get(`/api/tags`).then((res) => {
@@ -51,15 +53,39 @@ class CreateForm extends Component {
     }
   };
 
-  submitHandler = () => {
-    return <Note title={this.state.title} content={this.state.content} />;
+  addNote(e) {
+    e.preventDefault();
+    const newTitle = this.state.title;
+    const newContent = this.state.content;
+    console.log("New title", newTitle);
+    console.log("New content", newContent);
+
+    if (newTitle !== "" && newContent !== "") {
+      this.setState({
+        title: newTitle,
+        content: newContent,
+      });
+
+      return this.newNote(newTitle, newContent);
+    }
+  }
+
+  newNote = (title, content) => {
+    axios
+      .post(`/api/notes`, { title, content })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
     return (
       <div className='note-create-form'>
         <div className='container'>
-          <form onSubmit={this.handleForm}>
+          <form onSubmit={this.addNote}>
             <div className='form-group' id='form-group1'>
               <input
                 type='text'
@@ -102,9 +128,8 @@ class CreateForm extends Component {
                 disabled={
                   this.state.titleError !== "" || this.state.contentError !== ""
                 }
-                onClick={this.submitHandler}
               >
-                <Link to='/'> Save</Link>
+                Save
               </button>
 
               <button

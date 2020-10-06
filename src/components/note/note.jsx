@@ -9,7 +9,7 @@ export default class Note extends Component {
   render() {
     return (
       <div className='note'>
-        <NoteHeader title={this.props.title} />
+        <NoteHeader title={this.props.title} id={this.props.id} />
         <NoteContent content={this.props.content} />
         <NoteFooter tags={this.props.tags} />
       </div>
@@ -19,5 +19,6 @@ export default class Note extends Component {
 Note.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  tags: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired,
+  tags: PropTypes.array,
 };
