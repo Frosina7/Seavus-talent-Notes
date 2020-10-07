@@ -85,22 +85,20 @@ class CreateForm extends Component {
     e.preventDefault();
     const newTitle = this.state.title;
     const newContent = this.state.content;
-    const newTags = this.state.selectedTags;
 
     if (newTitle !== "" && newContent !== "") {
       this.setState({
         title: newTitle,
         content: newContent,
-        selectedTags: newTags,
       });
 
-      return this.newNote(newTitle, newContent, newTags);
+      return this.newNote(newTitle, newContent);
     }
   }
 
-  newNote = (title, content, newTags) => {
+  newNote = (title, content) => {
     axios
-      .post(`/api/notes`, { title, content, newTags })
+      .post(`/api/notes`, { title, content })
       .then((response) => {
         console.log(response);
       })

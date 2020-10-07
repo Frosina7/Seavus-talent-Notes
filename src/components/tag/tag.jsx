@@ -34,7 +34,7 @@ class TagsManager extends Component {
     });
   }
 
-  addTag(e) {
+  addTag = (e) => {
     e.preventDefault();
     const newTag = this.state.tag;
 
@@ -45,7 +45,7 @@ class TagsManager extends Component {
 
       return this.newTag(newTag);
     }
-  }
+  };
 
   newTag = (name) => {
     axios
