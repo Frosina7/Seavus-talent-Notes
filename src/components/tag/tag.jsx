@@ -12,6 +12,7 @@ class TagsManager extends Component {
       tags: [],
     };
     this.addTag = this.addTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +26,13 @@ class TagsManager extends Component {
     const value = e.target.value;
     this.setState({ tag: value });
   };
+
+  deleteTag(key) {
+    const filteredTags = this.state.tags.filter((tag) => tag.key !== key);
+    this.setState({
+      tags: filteredTags,
+    });
+  }
 
   addTag(e) {
     e.preventDefault();
@@ -82,7 +90,11 @@ class TagsManager extends Component {
                     #{tag.name}
                   </div>
                   <div>
-                    <button type='button' className='btn btn'>
+                    <button
+                      type='button'
+                      className='btn btn'
+                      onClick={this.deleteTag}
+                    >
                       Delete
                     </button>
                   </div>

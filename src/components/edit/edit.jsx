@@ -56,8 +56,6 @@ class EditNote extends Component {
     e.preventDefault();
     const newTitle = this.state.title;
     const newContent = this.state.content;
-    console.log("New title", newTitle);
-    console.log("New content", newContent);
 
     if (newTitle !== "" && newContent !== "") {
       this.setState({

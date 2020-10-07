@@ -7,6 +7,7 @@ import CreateNote from "./components/create-icon/create_icon";
 import CreateNoteForm from "./components/create/create";
 import TagsManager from "./components/tag/tag";
 import EditNote from "./components/edit/edit";
+import FilterTags from "./components/filter-tags/filter-tags";
 
 function App() {
   return (

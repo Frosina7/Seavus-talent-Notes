@@ -66,6 +66,7 @@ class CreateForm extends Component {
   };
 
   selectedTagsHandler = (e) => {
+    //i know this is now the right way,I did it this way because it worked for my scenario
     this.state.currentTag = e.target.value;
   };
 
