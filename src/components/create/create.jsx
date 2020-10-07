@@ -12,18 +12,29 @@ class CreateForm extends Component {
       content: "",
       titleError: "",
       contentError: "",
-      pickedTag: "",
+      name: "",
       tags: [],
+      selectedTags: [],
+      currentTag: "",
     };
 
     this.addNote = this.addNote.bind(this);
-    this.tagHandler = this.tagHandler.bind(this);
   }
+
   componentDidMount() {
     axios.get(`/api/tags`).then((res) => {
       console.log(res);
       this.setState({ tags: res.data });
     });
+  }
+
+  componentDidUpdate() {
+    console.log("State", this.state);
+    if (this.state.currentTag !== this.state.tags[0].name) {
+      this.setState({
+        currentTag: this.state.tags[0].name,
+      });
+    }
   }
 
   titleHandler = (e) => {
@@ -53,49 +64,49 @@ class CreateForm extends Component {
       this.setState({ contentError: "" });
     }
   };
-  tagHandler = (e) => {
-    const value = e.target.value;
-    this.setState({ pickedTag: value });
+
+  selectedTagsHandler = (e) => {
+    this.state.currentTag = e.target.value;
+  };
+
+  handleAddButton = () => {
+    this.addTag(this.state.currentTag);
+  };
+
+  addTag = (tag) => {
+    this.state.selectedTags.push(tag);
+    this.setState({
+      currentTag: "",
+    });
   };
 
   addNote(e) {
     e.preventDefault();
     const newTitle = this.state.title;
     const newContent = this.state.content;
+    const newTags = this.state.selectedTags;
 
     if (newTitle !== "" && newContent !== "") {
       this.setState({
         title: newTitle,
         content: newContent,
+        selectedTags: newTags,
       });
 
-      return this.newNote(newTitle, newContent);
+      return this.newNote(newTitle, newContent, newTags);
     }
   }
 
-  newNote = (title, content) => {
+  newNote = (title, content, newTags) => {
     axios
-      .post(`/api/notes`, { title, content })
+      .post(`/api/notes`, { title, content, newTags })
       .then((response) => {
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  tagShowHandler = (e) => {
-    e.preventDefault();
-    const newTag = this.state.pickedTag;
-
-    if (newTag !== "") {
-      this.setState({
-        tag: newTag,
-      });
-
-      console.log("TAG", newTag);
-      return <div>newTag</div>;
-    }
+    debugger;
   };
 
   render() {
@@ -127,14 +138,13 @@ class CreateForm extends Component {
               <p>{this.state.titleError}</p>
             </div>
             <div className='form-group' id='select-form'>
-              <select className='form-control' id='sel1'>
+              <select
+                className='form-control'
+                id='sel1'
+                onChange={this.selectedTagsHandler}
+              >
                 {this.state.tags.map((tag, index) => (
-                  <option
-                    key={index}
-                    name='pickedTag'
-                    value={this.state.pickedTag}
-                    onChange={this.tagHandler}
-                  >
+                  <option key={index} name='name' value={tag.name}>
                     #{tag.name}
                   </option>
                 ))}
@@ -143,10 +153,18 @@ class CreateForm extends Component {
               <button
                 type='button'
                 className='btn btn'
-                onClick={this.tagShowHandler}
+                onClick={this.handleAddButton}
               >
                 Add
               </button>
+
+              <div className='container'>
+                {this.state.selectedTags.map((tag, index) => (
+                  <span key={index} name='name' value={tag}>
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className='container' id='bottom-container'>
               <button

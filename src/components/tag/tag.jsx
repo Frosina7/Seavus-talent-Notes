@@ -12,7 +12,6 @@ class TagsManager extends Component {
       tags: [],
     };
     this.addTag = this.addTag.bind(this);
-    this.deleteTag = this.deleteTag.bind(this);
   }
 
   componentDidMount() {
@@ -21,14 +20,6 @@ class TagsManager extends Component {
       this.setState({ tags: res.data });
     });
   }
-
-  deleteTag = (key) => {
-    const FilterTags = this.state.tags.filter((tag) => tag.key !== key);
-    this.setState({
-      tags: FilterTags,
-    });
-    window.location.reload(true);
-  };
 
   tagHandler = (e) => {
     const value = e.target.value;
@@ -85,16 +76,13 @@ class TagsManager extends Component {
                     type='text'
                     className='form-control'
                     id='form-tags'
+                    value={tag.id}
                     key={index}
                   >
                     #{tag.name}
                   </div>
                   <div>
-                    <button
-                      type='button'
-                      className='btn btn'
-                      onClick={this.deleteTag}
-                    >
+                    <button type='button' className='btn btn'>
                       Delete
                     </button>
                   </div>

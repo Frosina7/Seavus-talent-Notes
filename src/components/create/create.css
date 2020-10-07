@@ -24,6 +24,7 @@
 .container #bottom-container {
   align-items: flex-start;
   display: inline-flex;
+  padding-top: 4%;
   padding: 0;
 }
 #select-form {
