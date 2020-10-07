@@ -3,7 +3,7 @@ import "./tag_style.css";
 import axios from "axios";
 import { Box } from "@material-ui/core";
 
-class TagsManager extends Component {
+export default class TagsManager extends Component {
   constructor(props) {
     super(props);
 
@@ -107,5 +107,3 @@ class TagsManager extends Component {
     );
   }
 }
-
-export default TagsManager;
