@@ -8,8 +8,11 @@ class TagsManager extends Component {
     super(props);
 
     this.state = {
+      name: "",
       tags: [],
     };
+    this.addTag = this.addTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
 
   componentDidMount() {
@@ -19,32 +22,65 @@ class TagsManager extends Component {
     });
   }
 
-  deleteTag = () => {
-    axios.delete(`api/tags/${this.props.id}`);
+  deleteTag = (key) => {
+    const FilterTags = this.state.tags.filter((tag) => tag.key !== key);
+    this.setState({
+      tags: FilterTags,
+    });
     window.location.reload(true);
+  };
+
+  tagHandler = (e) => {
+    const value = e.target.value;
+    this.setState({ tag: value });
+  };
+
+  addTag(e) {
+    e.preventDefault();
+    const newTag = this.state.tag;
+
+    if (newTag !== "") {
+      this.setState({
+        tag: newTag,
+      });
+
+      return this.newTag(newTag);
+    }
+  }
+
+  newTag = (name) => {
+    axios
+      .post(`/api/tags`, { name })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
     return (
       <div className='tag-create-form'>
-        <form onSubmit={this.handleForm}>
+        <form>
           <div className='form-group' id='create-tag'>
             <Box m={3} p={2} className='tag-create-box'>
               <input
                 type='text'
-                name='tag'
+                name='name'
+                value={this.state.tag}
                 className='form-control'
                 id='exampleFormControlInput1'
                 placeholder='Create new tag'
-                onChange={this.handleTitleChange}
+                onChange={this.tagHandler}
               ></input>
-              <button type='button' className='btn btn'>
+              <button type='button' className='btn btn' onClick={this.addTag}>
                 Create
               </button>
             </Box>
             <div className='container' id='tags-container'>
               {this.state.tags.map((tag, index) => (
-                <div className='tag-button-container'>
+                <div className='tag-button-container' key={index}>
                   <div
                     type='text'
                     className='form-control'

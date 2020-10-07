@@ -12,10 +12,12 @@ class CreateForm extends Component {
       content: "",
       titleError: "",
       contentError: "",
+      pickedTag: "",
       tags: [],
     };
 
     this.addNote = this.addNote.bind(this);
+    this.tagHandler = this.tagHandler.bind(this);
   }
   componentDidMount() {
     axios.get(`/api/tags`).then((res) => {
@@ -51,6 +53,10 @@ class CreateForm extends Component {
       this.setState({ contentError: "" });
     }
   };
+  tagHandler = (e) => {
+    const value = e.target.value;
+    this.setState({ pickedTag: value });
+  };
 
   addNote(e) {
     e.preventDefault();
@@ -76,6 +82,20 @@ class CreateForm extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  tagShowHandler = (e) => {
+    e.preventDefault();
+    const newTag = this.state.pickedTag;
+
+    if (newTag !== "") {
+      this.setState({
+        tag: newTag,
+      });
+
+      console.log("TAG", newTag);
+      return <div>newTag</div>;
+    }
   };
 
   render() {
@@ -109,11 +129,22 @@ class CreateForm extends Component {
             <div className='form-group' id='select-form'>
               <select className='form-control' id='sel1'>
                 {this.state.tags.map((tag, index) => (
-                  <option key={index}>#{tag.name}</option>
+                  <option
+                    key={index}
+                    name='pickedTag'
+                    value={this.state.pickedTag}
+                    onChange={this.tagHandler}
+                  >
+                    #{tag.name}
+                  </option>
                 ))}
               </select>
 
-              <button type='button' className='btn btn'>
+              <button
+                type='button'
+                className='btn btn'
+                onClick={this.tagShowHandler}
+              >
                 Add
               </button>
             </div>

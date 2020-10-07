@@ -1,11 +1,11 @@
 .tag-create-form #create-tag {
   width: 60%;
+  padding-bottom: 4%;
 }
 .tag-create-form {
   min-height: 250px;
   background: linear-gradient(#fdf4bb, #e8dc88);
   width: 50%;
-  height: 320px;
   margin: 0 auto;
   margin-top: 3%;
 }
